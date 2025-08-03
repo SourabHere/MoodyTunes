@@ -1,7 +1,7 @@
 import json
 import re
 from typing import Dict, List
-from services.LLM_interface import LLMInterface
+from LLM.LLM_interface import LLMInterface
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
@@ -9,7 +9,7 @@ import google.generativeai as genai
 load_dotenv()
 
 
-class GeminiService(LLMInterface):
+class Gemini(LLMInterface):
 
     def __init__(self):
         self.name = "gemini"

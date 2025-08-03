@@ -1,10 +1,10 @@
-from services.LLM_interface import LLMInterface
-from services.gemini_service import GeminiService
+from LLM.LLM_interface import LLMInterface
+from LLM.gemini import Gemini
 
 class LLMFactory:
 
     mappings = {
-        "gemini": GeminiService
+        "gemini": Gemini
     }
 
 

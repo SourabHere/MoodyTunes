@@ -2,7 +2,7 @@ import asyncio
 from fastapi import HTTPException
 import spotipy
 from utils.playlist_utils import create_playlist_and_add_tracks, get_playlist_tracks
-from services.LLM_factory import LLMFactory
+from LLM.LLM_factory import LLMFactory
 
 
 class SpotifyService:

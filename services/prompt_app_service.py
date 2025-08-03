@@ -1,4 +1,4 @@
-from services.LLM_factory import LLMFactory
+from LLM.LLM_factory import LLMFactory
 
 
 class PromptAppService:
