@@ -1,0 +1,7 @@
+.env
+
+token.txt
+venv
+.cache
+__pycache__
+apidetails.txt 
