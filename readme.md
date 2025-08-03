@@ -6,12 +6,20 @@ Built for people (like me) who have one massive Spotify playlist with every kind
 
 So instead of doing the boring task of creating separate playlists... I wrote an app. Because obviously, coding a full app is way easier than manually dragging songs. 🤷‍♂️
 
+
 After all, what's more satisfying than spending 2 days coding to automate a 10-minute manual task?
 
 
 If you're also lazy, overwhelmed by your musical chaos, and mildly addicted to automating everything, welcome — you’re among friends.
 
+
+<br>
+
 ---
+
+<br>
+
+
 
 ## 🚀 Features
 
@@ -22,7 +30,14 @@ If you're also lazy, overwhelmed by your musical chaos, and mildly addicted to a
 - 🛠️ Easily extensible for more LLMs or music sources
 
 
+
+<br>
+
 ---
+
+<br>
+
+
 
 
 ## 🛠️ How to Run It
@@ -58,7 +73,14 @@ uvicorn main:app --reload
 
 
 
+
+<br>
+
 ---
+
+<br>
+
+
 
 ## 🧪 .env Configuration
 
@@ -77,7 +99,14 @@ GEMINI_API_KEY=your_gemini_api_key
 LASTFM_API_KEY=your_lastfm_api_key 
 
 ```
+
+<br>
+
 ---
+
+<br>
+
+
 
 ## Contributions
 
