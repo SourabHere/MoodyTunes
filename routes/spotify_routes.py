@@ -11,33 +11,10 @@ router = APIRouter()
 
 spotify_service = SpotifyService()
 
-def format_gemini_response(raw_response: str):
-    try:
-        
-        match = re.search(r"```(?:json)?\s*(\[\s*{.*?}\s*])\s*```", raw_response, re.DOTALL)
-        if not match:
-            raise ValueError("Could not find a valid JSON block")
-
-        json_str = match.group(1)
-
-
-        json_str = json_str.replace('\\"', '"')  
-        json_str = json_str.replace('\\\\', '\\') 
-
-
-        return json.loads(json_str)
-
-    except json.JSONDecodeError as e:
-        print("JSON decoding failed:", e)
-        raise HTTPException(status_code=400, detail=f"Invalid JSON in Gemini response: {str(e)}")
-    except Exception as e:
-        print("Generic parsing error:", e)
-        raise HTTPException(status_code=500, detail=f"Failed to parse Gemini response: {str(e)}")
-    
-
 
 @router.get("/get_user_playlists")
 def get_user_playlists():
+    spotify_service.refresh_token()
     return spotify_service.get_user_playlists()
 
 
@@ -49,6 +26,7 @@ async def classify_songs_from_playlists(
         playlist_name: str = Query("Custom Playlist")
     ):
     
+    spotify_service.refresh_token()
     classified_songs = await spotify_service.classify_songs_from_playlists(playlist_ids, mood, playlist_name)
 
     return classified_songs
@@ -62,6 +40,7 @@ async def create_mood_playlist_gemini_idonly(
         user_id: str = Query(...)
     ):
 
+    spotify_service.refresh_token()
     playlist_response = await spotify_service.create_mood_playlist(playlist_ids, mood, playlist_name, user_id)
 
     return {

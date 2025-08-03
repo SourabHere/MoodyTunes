@@ -13,6 +13,12 @@ class SpotifyService:
         self.sp = spotipy.Spotify(auth=self.access_token)
 
     
+    def refresh_token(self, token_path="token.txt"):
+        with open(token_path, "r") as f:
+            self.access_token = f.read().strip()
+        self.sp = spotipy.Spotify(auth=self.access_token)
+
+
     def get_user_playlists(self):
         playlists = self.sp.current_user_playlists()
         user_info = self.sp.current_user()
