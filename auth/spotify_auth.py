@@ -12,7 +12,12 @@ def get_spotify_oauth():
         client_id=os.getenv("SPOTIPY_CLIENT_ID"),
         client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),
         redirect_uri=os.getenv("SPOTIPY_REDIRECT_URI"),
-        scope="playlist-modify-public playlist-modify-private"
+        scope=(
+            "playlist-read-private "
+            "playlist-read-collaborative "
+            "playlist-modify-public "
+            "playlist-modify-private"
+        )
     )
 
 def get_spotify_client():
