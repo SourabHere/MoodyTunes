@@ -1,8 +1,6 @@
 import json
 import re
 from typing import Dict, List
-
-from fastapi import HTTPException
 from services.LLM_interface import LLMInterface
 import os
 from dotenv import load_dotenv
@@ -20,6 +18,10 @@ class GeminiService(LLMInterface):
 
         if not self.token:
             raise EnvironmentError("GEMINI_API_KEY not found in environment variables.")
+        
+        
+        genai.configure(api_key=self.token)
+
         
 
     def hello_world(self):

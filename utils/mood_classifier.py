@@ -1,12 +1,12 @@
-from typing import List
 import httpx
-from typing import List, Dict
-from typing import Dict
 import urllib.parse
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
+
+LASTFM_API_KEY = os.getenv("LASTFM_API_KEY")
+
 
 MOOD_MAP = {
     "dance": ["dance", "club", "edm", "electronic", "house", "party"],
@@ -25,9 +25,6 @@ def classify_mood_from_tags(tags: list[str]) -> str:
     return "unknown"
     
 
-
-LASTFM_API_KEY = os.getenv("LASTFM_API_KEY")
-
 async def get_lastfm_tags(artist: str, track: str):
     base_url = "http://ws.audioscrobbler.com/2.0/"
     params = {
@@ -38,7 +35,7 @@ async def get_lastfm_tags(artist: str, track: str):
         "format": "json"
     }
     
-    # Encode for URL
+    
     query = urllib.parse.urlencode(params)
     url = f"{base_url}?{query}"
 

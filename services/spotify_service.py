@@ -10,7 +10,6 @@ class SpotifyService:
 
         with open(token_path, "r") as f:
             self.access_token = f.read().strip()
-        
         self.sp = spotipy.Spotify(auth=self.access_token)
 
     
