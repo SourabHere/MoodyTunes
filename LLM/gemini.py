@@ -61,7 +61,6 @@ class Gemini(LLMInterface):
 
             return json.loads(output)
 
-            # return self.format_gemini_response(response.text.strip())
         except Exception as e:
             return str({"error": str(e)})
         
