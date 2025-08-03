@@ -51,7 +51,6 @@ class GeminiService(LLMInterface):
         '''
 
         try:
-            print(f"Sending request to Gemini model with prompt: {prompt}")
             
             response = self.model.generate_content(prompt)
 
@@ -75,7 +74,6 @@ class GeminiService(LLMInterface):
         '''
 
         try:
-            print(f"Sending request to Gemini model with prompt: {prompt}")
             
             response = self.model.generate_content(prompt)
             return response.text.strip()
@@ -103,7 +101,7 @@ class GeminiService(LLMInterface):
             '''
 
         try:
-            print("Sending Gemini prompt...")
+            
             response = self.model.generate_content(prompt)
             output = response.text.strip()
 

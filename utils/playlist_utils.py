@@ -1,5 +1,4 @@
 import time
-from typing import List
 
 def escape_for_prompt(s: str):
     return s.replace("\\", "\\\\").replace("\"", "\\\"")
@@ -34,17 +33,6 @@ def create_playlist_and_add_tracks(sp, user_id, playlist_name, track_ids):
 
     return playlist["external_urls"]["spotify"]
 
-
-def get_audio_features_for_tracks(sp, track_ids: List[str]):
-    features = []
-    for track_id in track_ids:
-        try:
-            result = sp.audio_features([track_id])
-            if result and result[0]:
-                features.append(result[0])
-        except Exception as e:
-            print(f"Error fetching features for {track_id}: {e}")
-    return features
 
 def get_playlist_tracks(sp, playlist_id):
     results = []
